@@ -5,7 +5,7 @@ def sortColors(nums):
                 temp = nums[i]
                 nums[i] = nums[j]
                 nums[j] = temp
-                
+
     print(nums)
     
 sortColors([2,0,2,1,2,1,0])
