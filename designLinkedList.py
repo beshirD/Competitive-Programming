@@ -25,7 +25,7 @@ class MyLinkedList:
         if index > self.length:
             return  
         
-        newNode = ListNode(val)
+        newNode = Node(val)
         currNode = self.head
         if index <= 0:
             newNode.next = currNode
