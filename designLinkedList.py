@@ -48,4 +48,3 @@ class MyLinkedList:
                 currNode = currNode.next
             currNode.next = currNode.next.next
         self.length -= 1
-            
