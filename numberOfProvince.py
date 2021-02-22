@@ -1,5 +1,5 @@
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected):
         numberOfProvince = 0
         isVisited = set()
         for i in range(len(isConnected)):
