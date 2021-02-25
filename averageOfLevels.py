@@ -6,7 +6,7 @@ class TreeNode:
         self.right = right
 from collections import deque
 class Solution:
-    def averageOfLevels(self, root: TreeNode) -> List[float]:
+    def averageOfLevels(self, root: TreeNode):
         if not root:
             return []
         queue = deque([root])
