@@ -1,16 +1,13 @@
-from collections import deque
+from collections import deque,defaultdict
 class Solution:
-    def canFinish(self, numCourses: int, prerequisites):
-        my_dict = {}
+    def canFinish(self, numCourses, prerequisites):
+        graph = defaultdict(list)
         result = []
         countArray = [0] * numCourses 
         queue = deque()
         for edges in prerequisites:
-            countArray[edges[0]] += 1
-            if edges[1] in my_dict:
-                my_dict[edges[1]].append(edges[0])
-            else:
-                my_dict[edges[1]] = [edges[0]] 
+            countArray[edges[0]] += 1   
+            graph[edges[1]].append(edges[0])
         change = None
         for i in countArray:
             if i == 0:
@@ -20,13 +17,11 @@ class Solution:
         while queue:
             node = queue.popleft()
             result.append(node)
-            for parent,child in my_dict.items():
-                if parent == node:
-                    for i in child:
-                        countArray[i] -= 1
-                        if countArray[i] == 0:
-                            queue.append(i)
-                            countArray[i] = change
+            for child in graph[node]:        
+                countArray[child] -= 1
+                if countArray[child] == 0:
+                    queue.append(child)
+                    countArray[child] = change
         if len(result) == numCourses:
             return True
         else:
